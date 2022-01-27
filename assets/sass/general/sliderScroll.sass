@@ -1,0 +1,97 @@
+.slider-scroller
+  width: 100%
+  position: relative
+  overflow: hidden
+  white-space: nowrap
+  z-index: 1
+  +adaptiv-value("height", $h_scroll, $h_scroll_mob, 2)
+
+  &-inner
+    display: flex
+    animation: scroll 32s linear infinite
+    animation-delay: .8s
+    width: 2000px
+    column-gap: 16px
+
+    &:hover
+      animation-play-state: paused
+
+.slider-scroller--right
+  .slider-scroller-inner
+    animation-direction: reverse
+
+.slider-scroller--left
+  .slider-scroller-inner
+    animation-direction: normal
+
+.slider-scroll
+  display: inline-block
+  position: relative
+  border-radius: $br_menu
+  overflow: hidden
+  cursor: pointer
+  +adaptiv-value("min-width", $w_scrollImg, $w_scrollImg_mob, 2)
+  +adaptiv-value("width", $w_scrollImg, $w_scrollImg_mob, 2)
+
+
+
+.slider-scroller-img
+  width: 100%
+  height: auto
+  object-fit: cover
+
+.slider-scroll-title
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  z-index: 1
+
+@keyframes scroll
+  0%
+    transform: translateX(0)
+  to
+    transform: translateX(-67%)
+
+.swiper-button-prev, .swiper-button-next
+  position: absolute
+  top: 0
+  margin-top: calc(32px / 2)
+  border-radius: 50%
+  background: rgba(0, 0, 0, 0.5)
+
+
+.str_wrap
+  background-color: $grey1!important
+  min-height: 65px!important
+
+  &.str-slider-gallery
+    //min-height: 80px!important
+    //+adaptiv-value("min-height", $h_scroll, $h_scroll_mob, 2)
+    min-height: calc(56px + 24 * ((100vw - 320px) / 1120)) !important
+    background-color: transparent!important
+
+.categories
+  top: 124px
+  +tablet-down
+    top: 120px
+  .str_wrap
+    background-color: $grey8!important
+
+
+.str-slider-wrap
+  position: absolute
+  left: 0
+  height: 60px
+  width: 100%
+  z-index: 100
+
+.galleryPage
+  .str-slider-wrap
+    +adaptiv-value("height", $h_scroll, $h_scroll_mob, 2)
+    top: calc(62px + 16px)
+

@@ -1,0 +1,178 @@
+.myProfile
+  &__top
+    +adaptiv-value("min-height", 333, 176, 2)
+    +adaptiv-value("max-height", 333, 176, 2)
+
+  &-img
+    +adaptiv-value("width", 1440, 320, 2)
+    margin-left: calc((100vw - #{$mw_container} + #{$pl_container}*2)/(-2))
+    +laptop-down
+      margin-left: -#{$pl_container}
+    img
+      width: 100%
+      height: auto
+      +adaptiv-value("min-height", 333, 176, 2)
+      +adaptiv-value("max-height", 333, 176, 2)
+      object-fit: cover
+
+
+  &__img
+    margin-top: -90px
+    margin-bottom: 23px
+    border-radius: 12px
+    overflow: hidden
+    width: 116px
+    height: 116px
+    min-width: 116px
+    min-height: 116px
+    img
+      width: 100%
+      height: auto
+
+  &__last-seen
+    color: $grey3
+    margin-bottom: 40px
+
+  &__bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+
+  &__settings
+    width: 32px
+    height: 32px
+    border: 1px solid $fc_body
+    border-radius: 2px
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: -15px
+    background-color: transparent
+    padding: 0
+    &:hover
+      border-color: $violetta2
+      .myProfile__settings-ic
+        fill: $violetta2
+    &-ic
+      width: 20px
+      height: 20px
+      fill: $fc_body
+
+  &__pills
+    margin-bottom: 40px
+
+  h3.title
+    margin-bottom: 16px
+
+  .posts-wrap
+    row-gap: 50px
+
+  &-empty
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    row-gap: 30px
+    text-align: center
+    &__ic
+      width: 100px
+      height: 100px
+      min-width: 100px
+      min-height: 100px
+      fill: $fc_body
+      opacity: 0.3
+
+.followers-wrap
+  .myProfile-empty
+    grid-column: span 2
+
+.followers
+  &-wrap
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 20px
+    +phone-down
+      grid-template-columns: 1fr
+  &-item
+    background: $grey1
+    border-radius: 4px
+    padding: 20px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-grow: 1
+    &__img
+      display: flex
+      align-items: center
+      font-size: 17px
+      img
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        margin-right: 15px
+  &-btn
+    text-transform: uppercase
+    +tablet-down
+      padding: 6px
+
+  .following-btn
+    .checkcircle-icon
+      display: inline-block
+    .userplus-icon
+      display: none
+
+  .follow-btn
+    .checkcircle-icon
+      display: none
+    .userplus-icon
+      display: inline-block
+
+  &-side-wrap
+    +tablet-down
+      display: none
+  &-side
+    min-width: 300px
+    margin-bottom: 40px
+    .followers-wrap
+      gap: 0
+      grid-template-columns: 1fr
+      border-radius: 4px
+    .followers-item
+      border-radius: 0
+      padding: 15px
+      padding-bottom: 1px
+      &:last-child
+        padding-bottom: 16px
+
+    &__top
+      display: flex
+      justify-content: space-between
+      margin-bottom: 15px
+
+.bookmarkfilled-icon
+  fill: $fc_body
+
+
+
+.article-content
+  display: flex
+  justify-content: space-between
+  column-gap: 100px
+  +tablet-down
+    column-gap: 0
+  &>div:not(.followers-wrap)
+    +tablet-down
+      width: 100%
+
+.checkbox--filled input:checked+.checkbox-icon
+  background-color: $violetta!important
+  border: 1px solid $violetta!important
+
+.readingList__pills
+  margin-bottom: 20px
+
+.tab-content
+  .article-content
+    &>div
+      width: 100%

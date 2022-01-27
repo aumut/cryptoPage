@@ -1,0 +1,23 @@
+.breadcrumb
+  margin-bottom: 32px
+  min-height: 20px
+  margin-top: 18px
+  background-color: transparent
+  color: $fc_body
+  padding: 0
+
+  &>li+li:before,
+  .breadcrumb-item+.breadcrumb-item::before
+    content: ">"
+    padding: 0 5px 0 8px
+    font-size: 11px
+    color: rgba(255, 255, 255, 0.5)
+  .breadcrumb-item
+    a, span
+      font-size: 12px
+      color: $fc_body
+    &.active
+      color: rgba(255, 255, 255, 0.5)
+
+.page-breadcrumb
+  min-height: auto

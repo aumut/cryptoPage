@@ -1,0 +1,322 @@
+.header
+  background-color: $bg_header
+  .container
+    max-width: 100%
+    padding: 0
+  &__inner
+    padding: 9px 25px 10px
+    +adaptiv-value("padding-left", 25, 15, 2)
+    +adaptiv-value("padding-right", 25, 15, 2)
+    display: flex
+    align-items: center
+    +tablet-down
+      padding-top: 14px
+      padding-bottom: 15px
+    +phone-down
+      padding-top: 20px
+      padding-bottom: 16px
+
+  .logo
+    //background-color: $violetta1
+    +adaptiv-value("margin-right", 65, 0, 2)
+    +adaptiv-value("width", 190, 105, 2)
+    height: 34px
+    +tablet-down
+      height: 26px
+      min-width: 70px
+    +phone-down
+      height: 20px
+      margin-right: 40px
+
+  .profile-dropdown
+    +phone-down
+      width: 100%
+    .dropdown-menu
+      +phone-down
+        display: flex
+        padding: 0
+        background: transparent
+        box-shadow: none
+        border-radius: 0
+        width: 100%
+        border-top: 1px solid $grey1
+        padding-top: 20px
+
+      li:last-child
+        border-top: none
+
+    .a-profile
+      +phone-down
+        display: none
+
+  .a-profile
+    display: flex
+    align-items: center
+    &__name
+      +tablet-down
+        display: none
+    &__img
+      border-radius: 50%
+      width: 24px
+      height: 24px
+      min-width: 24px
+      min-height: 24px
+      margin-left: 10px
+      +adaptiv-value("margin-left", 10, 30, 2)
+      overflow: hidden
+      img
+        width: 100%
+        height: auto
+
+  .nav
+    +phone-down
+      order: 1
+      display: none
+      position: fixed
+      top: 0
+      right: 0
+      width: 70%
+      height: 100%
+      overflow: auto
+      transition: all 0.5s ease 0s
+      background: #202020
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25)
+      border-radius: 0px 4px 4px 4px
+      //background: red
+      filter: drop-shadow(-100px 0px 25px rgba(0, 0, 0, 0.8))
+      z-index: 102
+
+      padding: 20px 0 20px 20px
+
+
+    &.mobActive
+      display: block
+      .burger
+        display: none
+      .menu--right
+        display: flex
+
+  .lang-dropdown
+    +phone-down
+      order: -1
+    &--mobile
+      display: none
+      +phone-down
+        display: block
+    &--desktop
+      display: block
+      +phone-down
+        display: none
+
+  .nav__menu
+    align-items: center
+    +phone-down
+      border-bottom: 1px solid $grey1
+    .menu-item
+      position: relative
+      &::after
+        content: ""
+        position: absolute
+        display: inline-block
+        width: 100%
+        bottom: -4px
+        left: 0
+        border-bottom: 2px solid transparent
+      &:hover
+        &::after
+          border-bottom-color: $violetta1
+
+  .menu--right
+    +phone-down
+      padding: 20px 0
+      display: none
+
+  .btn-left, .btn-close
+    display: none
+  .menu
+    align-items: center
+    //+adaptiv-value("column-gap", 45, 0, 2)
+    +phone-down
+      flex-direction: column
+      align-items: flex-start
+    &-item
+      +adaptiv-value("margin-right", 45, 0, 2)
+      +phone-down
+        margin-bottom: 20px
+      &:last-child
+        margin-right: 0
+  &__inner
+    &.searching
+      //padding-top: 9px
+      //padding-bottom: 10px
+      +tablet-down
+        padding-top: 9px
+        padding-bottom: 10px
+      .nav, .logo, .menu--right
+        +tablet-down
+          display: none
+      .btn-left, .btn-close
+        +tablet-down
+          display: inline-block
+      .burger
+        +phone-down
+          display: none
+    .search.active
+      +tablet-down
+        width: 100%
+        margin-right: 0
+        margin-left: 15px
+
+  .search-field
+    +tablet-down
+      display: none
+  .btn-login
+    margin-top: 0
+    margin-bottom: 0
+    +adaptiv-value("margin-right", 45, 0, 2)
+
+.burger
+  display: none
+  +phone-down
+    order: 1
+    display: block
+    position: relative
+    width: 18px
+    height: 12px
+    z-index: 103
+  &::before, &::after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 2px
+    left: 0
+    background-color: $fc_body
+    transition: all 0.5s ease 0s
+    border-radius: 2px
+
+  &::before
+    top: 0
+  &::after
+    bottom: 0
+
+  span
+    position: absolute
+    background-color: $fc_body
+    left: 0
+    width: 100%
+    height: 2px
+    top: 5px
+    transition: all 0.5s ease 0s
+    border-radius: 2px
+
+  &.active
+    background-color: $grey3
+    width: 36px
+    height: 36px
+    position: absolute
+    right: 70%
+    top: 1px
+
+    &::before, &::after
+      width: 70%
+      left: 6px
+      background-color: #000000
+    &::before
+      transform: rotate(45deg)
+      top: 18px
+    span
+      transform: scale(0)
+    &::after
+      transform: rotate(-45deg)
+      bottom: 16px
+
+
+.select-menu
+  padding: 20px
+  background: $bg_body
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25)
+  border-radius: 4px
+  color: $fc_body
+  min-width: 160px
+  border: none
+  font-size: inherit
+
+
+
+
+
+
+
+
+.search
+  margin-left: auto
+  //margin-right: 40px
+  +adaptiv-value("margin-right", 28, 24, 2)
+  //width: 80px
+  +adaptiv-value("width", 93, 24, 2)
+  transition: all 500ms ease-out 0ms
+  &.active
+    flex-grow: 1
+    +adaptiv-value("margin-left", 28, 24, 2)
+    .search-field
+      padding-left: 10px
+      background: $grey1
+      +tablet-down
+        display: inline-block
+    .search-label
+      background: $grey1
+
+.search-field
+  background: transparent
+  color: $fc_body
+  padding: 12px 0 12px 8px
+  border: none
+  flex-grow: 1
+  width: 100%
+  border-radius: 8px
+  font-size: 14px
+
+
+.search-label
+  border-radius: 8px
+  padding-left: 10px
+  padding-right: 7px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin: 0
+
+.search-wrap
+  display: flex
+  align-items: center
+  justify-content: space-between
+  width: 100%
+
+.search-icon
+  +adaptiv-value("width", 30, 16, 2)
+  +adaptiv-value("height", 30, 16, 2)
+  fill: #888888
+
+.lang-dropdown
+  .dropdown-select > span
+    &:before,&:after
+      display: none
+
+
+
+.headerSign
+  .search,.menu--right li:not(.signUp-link)
+    display: none
+  .menu--right
+    margin-left: auto
+  .btn-login
+    margin-left: 24px
+    +phone-down
+      margin-left: auto
+  .burger
+    +phone-down
+      display: none
+
+
+.test
+  background-color: transparent

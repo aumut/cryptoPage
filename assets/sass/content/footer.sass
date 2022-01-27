@@ -1,0 +1,62 @@
+.footer
+  box-shadow: 0px -1px 0px $grey3
+  &__inner
+    display: flex
+    justify-content: space-between
+    +adaptiv-value("padding-top", 30, 30, 2)
+    +adaptiv-value("padding-bottom", 47, 30, 2)
+    +phone-down
+      flex-direction: column
+
+  .logo
+    //background-color: $violetta2
+    +adaptiv-value("max-width", 190, 135, 2)
+    +adaptiv-value("margin-bottom", 10, 6, 2)
+    height: 30px
+
+  .col--right
+    //+adaptiv-value("width", 336, 270, 2)
+    padding-top: 8px
+    margin-left: auto
+    +phone-down
+      margin-left: 0
+      width: 100%
+
+  .col--center
+    width: 40%
+    +adaptiv-value("width", 480, 50, 2)
+    +adaptiv-value("margin-left", 90, 5, 2)
+    +tablet-down
+      +adaptiv-value-tablet("padding-left", 77, -77)
+    +phone-down
+      width: 100%
+      padding-left: 0
+      margin-left: 0
+    .menu-item:nth-child(3)
+      text-align: center
+      +tablet-down
+        text-align: left
+
+  .menu
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    +tablet-down
+      grid-template-columns: 1fr
+    +phone-down
+      grid-template-columns: repeat(2, 1fr)
+    &-item
+      margin-right: 0
+      a
+        padding: 8px 0 12px
+
+  .social-menu
+    +adaptiv-value("margin-top", 10, 13, 2)
+
+.copyright
+  opacity: 0.8
+  +adaptiv-value("font-size", 13, 12, 2)
+  font-family: $ff_RobotoRegular
+  +phone-down
+    margin-bottom: 15px
+
+

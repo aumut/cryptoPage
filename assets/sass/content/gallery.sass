@@ -1,0 +1,262 @@
+.galleryPage
+  h2.title
+    +adaptiv-value("margin-top", 64, 32, 2)
+    +adaptiv-value("margin-bottom", 64, 32, 2)
+
+  .btn-wrap
+    display: flex
+    column-gap: 16px
+
+  .btn
+    &:not(.btn-shspan)>span
+      +tablet-down
+        display: block
+      //+phone-down
+        display: none
+
+  .content__inner
+    +adaptiv-value("padding-top", $h_scroll, $h_scroll_mob, 2)
+
+  .slider-scroller
+    position: absolute
+    left: 0
+    +adaptiv-value("margin-top", -$h_scroll, -$h_scroll_mob, 2)
+
+  .slider-scroll
+    +adaptiv-value("min-height", $h_scroll, $h_scroll_mob, 2)
+    +adaptiv-value("height", $h_scroll, $h_scroll_mob, 2)
+    min-height: calc(56px + 24 * ((100vw - 320px) / 1120)) !important
+    margin-right: 16px
+    &::after
+      content: ""
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background-color: rgba(0,0,0,0.4)
+      z-index: 0
+      transition: all 0.3s ease-in-out
+    &:hover
+      &::after
+        background-color: $violetta3
+
+.gallery
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-auto-rows: minmax(auto, 263px)
+  gap: 20px
+  height: auto!important
+  +tablet-down
+    grid-auto-rows: minmax(auto, 160px)
+  +phone-down
+    grid-template-columns: 1fr
+    grid-auto-rows: minmax(auto, 233px)
+  &__item
+    &>a
+      width: 100%
+      height: 100%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.mfp-container a.mfp-arrow
+  width: 32px
+  min-width: 32px
+  height: 32px
+  min-height: 32px
+  border-radius: 50%
+  background-color: $black1
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  border: 0
+  outline: 0
+  padding: 0
+  box-shadow: none
+  top: calc(50% - 16px)
+  &::before
+    display: none
+  &::after
+    content: ''
+    display: block
+    width: 18px
+    height: 18px
+    position: static
+    margin-top: unset!important
+    margin-left: unset!important
+    border: none!important
+    background:
+      color: transparent
+      repeat: no-repeat
+      size: auto
+      position: center
+      image: url("../img/arrowRight.svg")
+
+button.mfp-arrow, .swiper-button-prev, .swiper-button-next, .btn-arrow-left, .slider-arrow
+  overflow: visible
+  cursor: pointer
+  width: 32px
+  min-width: 32px
+  height: 32px
+  min-height: 32px
+  border-radius: 50%
+  background-color: $black1
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  border: 0
+  outline: 0
+  padding: 0
+  z-index: 1046
+  box-shadow: none
+  touch-action: manipulation
+  opacity: 1
+  position: absolute
+  +adaptiv-value("top", 25, 12, 2)
+  margin: 0
+
+  &::before
+    display: none
+  &::after
+    content: ''
+    display: block
+    width: 18px
+    height: 18px
+    position: static
+    margin-top: unset!important
+    margin-left: unset!important
+    border: none!important
+    background:
+      color: transparent
+      repeat: no-repeat
+      size: auto
+      position: center
+      image: url("../img/arrowRight.svg")
+
+.mfp-container button.slider-arrow
+  top: calc(50% - 16px)
+
+.mfp-arrow-left, .swiper-button-prev, .slider-arrow-left
+  left: 40px!important
+  &::after
+    transform: scaleX(-1)
+
+.mfp-arrow-right, .swiper-button-next, .slider-arrow-right
+  right: 40px!important
+
+.btn-arrow-left
+  background-color: transparent
+
+$pt_imgGal: 93px
+$w_mfp_ic: 40px
+
+.mfp-wrap
+  img.mfp-img
+    padding: 0
+    height: 100%
+    object-fit: cover
+  .mfp-image-holder
+    .mfp-close
+      //margin-top: $pt_imgGal
+      margin-top: 20px
+      opacity: 1
+      height: 10px
+      font-size: 35px
+      padding-right: 30px
+    .mfp-figure
+      height: 100%
+    .mfp-content
+      height: 78%
+      //max-width: 90%
+      //min-height: 80%
+      //width: 90%
+      +tablet-down
+        height: 50%
+  .mfp-bottom-bar
+    position: absolute
+    top: -10px
+    +tablet-down
+      height: 100%
+  .mfp-counter
+    display: none
+  .mfp-title
+    +adaptiv-value("font-size", 24, 20, 2)
+    line-height: 1.2
+    color: $fc_body
+    word-wrap: break-word
+    padding-left: 55px
+    +tablet-down
+      height: 100%
+      width: 100%
+    &::before
+      position: absolute
+      left: 0
+      top: -5px
+      content: ""
+      display: inline-block
+      width: $w_mfp_ic
+      height: $w_mfp_ic
+      min-width: $w_mfp_ic
+      min-height: $w_mfp_ic
+      border-radius: $br_menu
+      background:
+        image: url("../img/upload/gallery_slider_ic.jpg")
+        repeat: no-repeat
+        size: cover
+        position: center
+  .btn-wrap
+    display: flex
+    //column-gap: 20px
+    margin-top: 40px
+    margin-left: -35px
+    z-index: 1047
+    position: relative
+    opacity: 0
+    transition: opacity 0.2s ease-in
+    +tablet-down
+      position: absolute
+      left: 0
+      bottom: -20%
+      width: 100%
+      margin-left: 0
+      margin-top: 0
+      display: flex
+      justify-content: center
+    .btn
+      margin-right: 20px
+      +phone-down
+        padding: 6px
+      &:last-child
+        margin-right: 0
+    .btn>span
+      +tablet-down
+        display: inline-block!important
+      +phone-down
+        display: none!important
+
+  .mfp-figure
+    figure
+      height: 100%
+
+
+.mfp-zoom-out-cur .mfp-wrap .mfp-image-holder .mfp-close
+  cursor: pointer
+
+.mfp-content::before
+  content: ""
+  position: absolute
+  width: 100%
+  height: 30%
+  display: inline-block
+  background: linear-gradient(180deg, #000000 -7.83%, rgba(0, 0, 0, 0.583738) 55.59%, rgba(0, 0, 0, 0.271627) 80.86%, rgba(0, 0, 0, 0) 100%)
+  opacity: 0
+  z-index: 1
+  transition: opacity 0.2s ease-in
+
+.mfp-content:hover
+  &::before
+    opacity: 1
+  .btn-wrap
+    opacity: 1

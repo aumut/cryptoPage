@@ -1,0 +1,370 @@
+// ************* Post ***********
+.post
+  &-content
+    //max-width: 795px
+    width: 100%
+    margin: 0 auto
+    float: unset
+    clear: both
+    position: relative
+
+    .post-image
+      display: block
+      float: unset
+      width: 100%
+      max-width: 100%
+      text-align: center
+      margin-bottom: 30px
+      +adaptiv-value("height", 508, 158, 2)
+      max-width: unset
+      max-height: 508px
+      +tablet-down
+        +adaptiv-value-tablet("max-width", 768, 375)
+        +adaptiv-value-tablet("width", 768, 375)
+        margin-left: -15px
+
+      .post-image-inner
+        width: 100%
+        height: 100%
+        max-width: 100%
+      &>img
+        position: absolute
+        left: 50%
+        +adaptiv-value("height", 508, 158, 2)
+        width: 1200px
+        margin-left: calc(-1200px/2)
+        +laptop-down1
+          +adaptiv-value("width", 1200, 320, 2)
+          +adaptiv-value("margin-left", -1200/2, -320/2, 2)
+        +tablet-down
+          position: static
+          width: 100%
+          margin-left: 0
+          left: 0
+    img
+      max-width: 100%
+      width: 100%
+      height: 100%
+      object-fit: cover
+    h2.title
+      margin-top: 55px
+
+    .post-hashtag
+      margin-bottom: 50px
+      +tablet-down
+        margin-bottom: 25px
+    .post-text
+      +phone-down
+        padding-top: 10px
+        position: relative
+      &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        +phone-down
+          border-top: 1px solid $grey1
+          +adaptiv-value-tablet("width", 768, 375)
+          margin-left: -15px
+      a
+        color: $violetta1 !important
+      .title
+        margin-bottom: 20px
+      p, ul
+        margin-bottom: 20px
+
+      table
+        border-color: $grey1!important
+        tr:nth-child(even)
+          background-color: transparent!important
+
+
+
+    .post-comment
+      .comment-icon
+        margin-right: 15px
+
+  .post-details-wrap
+    display: inline-flex
+    flex-direction: column
+    margin-left: 15px
+
+  .post-author-meta
+    & > a
+      display: flex
+      align-items: center
+    span
+      &::after
+        display: none
+    img
+      width: auto
+      height: auto
+      border-radius: 0
+      float: unset
+      margin-right: 0
+
+  .section-related-posts
+    margin-bottom: 60px
+    .title
+      margin-bottom: 20px
+  .post-text, .section-related-posts
+    ul
+      li
+        display: flex
+        align-items: center
+        column-gap: 5px
+        margin-left: 5px
+        margin-bottom: 15px
+        color: $violetta1
+        &::before
+          content: ""
+          display: inline-block
+          width: 4px
+          height: 4px
+          background-color: $violetta1
+          border-radius: 50%
+        a
+          color: $violetta1
+
+
+  .section-comment
+    margin-bottom: 50px
+    .title
+      margin-bottom: 15px
+
+
+
+  .post-share
+    & + .dropdown-menu
+      width: 230px
+      background-color: $black
+
+  .backward-icon
+    transform: scaleX(-1)
+
+
+  .comment-list
+    &>li
+      display: flex
+      width: 100%
+      //column-gap: 15px
+      padding: 25px 0
+      border-top: 1px solid $grey1
+      //border-bottom: 1px solid $grey1
+
+    .username
+      +adaptiv-value("font-size", 17, 16, 2)
+      line-height: 1.2
+
+    .comment-date
+      font-size: $fs_body
+      color: $grey3
+
+    .comment
+      margin-bottom: 10px
+      font-size: $fs_body
+      +tablet-down
+        font-size: $fs_body
+    .left
+      margin-right: 15px
+      &>a
+        display: inline-block
+        overflow: hidden
+        border-radius: 50%
+        +adaptiv-value("width", 40, 32, 2)
+        +adaptiv-value("height", 40, 32, 2)
+        +adaptiv-value("min-width", 40, 32, 2)
+        +adaptiv-value("min-height", 40, 32, 2)
+        img
+          +adaptiv-value("width", 40, 32, 2)
+          +adaptiv-value("height", 40, 32, 2)
+          +adaptiv-value("min-width", 40, 32, 2)
+          +adaptiv-value("min-height", 40, 32, 2)
+          display: inline-block
+          border-radius: 50%
+    .right
+      flex-grow: 1
+      &__top
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +adaptiv-value("min-height", 40, 32, 2)
+        &--left
+          display: flex
+          column-gap: 15px
+          +tablet-down
+            flex-direction: column
+
+    .comment-meta
+      display: flex
+      align-items: center
+      //column-gap: 30px
+      &>a
+        display: flex
+        align-items: center
+        //column-gap: 10px
+        font-size: $fs_body
+        color: $grey3
+        margin-right: 30px
+        +tablet-down
+          font-size: $fs_body_mob
+        &:last-child
+          margin-right: 0
+        .svg-icon
+          margin-right: 10px
+
+  .row-sub-comment
+    .comment-list > li
+      border: none
+      position: relative
+      &::before, &::after
+        content: ""
+        display: inline-block
+        height: 1px
+        position: absolute
+        left: calc(-15px - calc(32px + (40 - 32) * ((100vw - 320px) / (1140 - 320))))
+        +adaptiv-value("width", 40, 32, 2)
+        width: calc(100% + 15px + calc(32px + (40 - 32) * ((100vw - 320px) / (1140 - 320))))
+      &::before
+        border-top: 1px solid $grey1
+        top: 0
+      //&::after
+        border-bottom: 1px solid $grey1
+        bottom: 0
+
+  ol:not(.breadcrumb)
+    +adaptiv-value("margin-left", 30, 25, 2)
+    li::marker
+      color: $violetta1
+
+
+.btn-delete-comment
+  color: $grey3!important
+
+.userphoto
+  display: inline-block
+  overflow: hidden
+  border-radius: 50%
+  +adaptiv-value("width", 40, 32, 2)
+  +adaptiv-value("height", 40, 32, 2)
+  +adaptiv-value("min-width", 40, 32, 2)
+  +adaptiv-value("min-height", 40, 32, 2)
+  img
+    +adaptiv-value("width", 40, 32, 2)
+    +adaptiv-value("height", 40, 32, 2)
+    +adaptiv-value("min-width", 40, 32, 2)
+    +adaptiv-value("min-height", 40, 32, 2)
+    display: inline-block
+    border-radius: 50%
+
+img.userphoto
+  +adaptiv-value("width", 40, 32, 2)
+  +adaptiv-value("height", 40, 32, 2)
+  +adaptiv-value("min-width", 40, 32, 2)
+  +adaptiv-value("min-height", 40, 32, 2)
+  display: inline-block
+  border-radius: 50%
+
+.w-sm
+  max-width: 795px
+  width: 100%
+  margin: 0 auto
+
+.post-meta
+  display: flex
+  margin-bottom: 15px
+  column-gap: 5px
+  span
+    display: flex
+    align-items: center
+    font-size: $fs_body
+    color: $grey3
+    &::after
+      content: ""
+      width: 3px
+      height: 3px
+      border-radius: 50%
+      background-color: $grey3
+      display: inline-block
+      margin-left: 7px
+
+.post-comment-pageviews
+  display: flex
+  //column-gap: 5px
+  align-items: flex-start
+  font-size: 14px
+  &.btm
+    column-gap: 30px
+    margin-bottom: 20px
+    display: grid
+    grid-template-columns: minmax(50px, 60px) 25px 25px
+
+  span
+    display: flex
+    align-items: center
+    color: $grey3
+    margin-right: 5px
+    &:last-child
+      &::after
+        display: none
+
+.post-details-meta-author
+  +adaptiv-value("font-size", 17, 16, 2)
+
+.post-details-meta-date
+  font-size: 14px
+
+
+.post-title-wrap
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+
+.star
+  &-wrap
+    display: flex
+    column-gap: 5px
+    +tablet-down
+      column-gap: 4px
+  &-icon
+    +adaptiv-value("width", 16, 12, 2)
+    +adaptiv-value("height", 16, 12, 2)
+    +adaptiv-value("min-width", 16, 12, 2)
+    +adaptiv-value("min-height", 16, 12, 2)
+  &:hover, &.active
+    .star-icon
+      fill: $violetta
+
+//*********** дополнительные стили по разным видам статей
+//*********** ordered-list-item
+.ordered-list-item .post-image
+  height: unset
+//******************** Trivia quiz/Personality quiz
+.quiz-container .question-answers .answer-format-image
+  & .answer
+    background-color: transparent
+    border-color: transparent
+    &:hover
+      background-color: #555
+      border-color: #555
+
+  & .answer-bottom .quiz-answer-icon
+    color: #ffffff
+//******************** Audio
+.post-content .show-on-page-load
+  max-width: unset
+  & div#amplitude-player
+    background-color: transparent
+
+  & div#amplitude-right
+    div.song div.song-meta-data span.song-title
+      color: #ffffff
+    .icon-download
+      color: #ffffff
+//******************************** post video
+.post-content #player
+  width: 100%
+  max-height: 448px
+

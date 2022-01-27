@@ -1,0 +1,65 @@
+.categories
+  h2.title
+    margin-bottom: 30px
+
+.category
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 20px
+  font-size: $fs_body
+  +phone-down
+    grid-template-columns: 1fr
+  &-item
+    display: block
+    border-radius: $br_menu
+    position: relative
+    overflow: hidden
+    min-height: 262px
+    height: 262px
+    padding: 15px 0
+    +tablet-down
+      min-height: 160px
+      height: 160px
+    +phone-down
+      min-height: 262px
+      height: 262px
+    &:hover
+      &::before
+        background-color: rgba(0, 0, 0, 0.5)
+        //background-color: transparent
+    &::before
+      content: ""
+      position: absolute
+      width: 100%
+      height: 100%
+      display: inline-block
+      transition: background-color 0.5s ease-in-out
+      z-index: 1
+      background-color: transparent
+
+  &-img
+    width: 100%
+    height: 100%
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &-info
+    position: absolute
+    bottom: 0
+    +adaptiv-value("padding", 20, 16, 2)
+    z-index: 2
+    background: rgba(32, 32, 32, 0.5)
+    width: 100%
+
+.category-logo
+  fill: #FFFFFF
+  width: 100%
+  height: 100%
+  filter: url(#shadow)
+  display: flex
+  align-items: center
+  justify-content: center
+  svg
+    width: 100%
+    height: 100%
